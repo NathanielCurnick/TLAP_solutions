@@ -1,9 +1,11 @@
 #include <iostream>
+#include <string>
+using std::cin;
 using std::cout;
+using namespace ::std;
+// Problem 6: Luhn Checksum Validation, Page 31
 
-// Problem 6: Luhn Checksum Validation
-
-int luhn_checksum()
+int main()
 {
     // finds the Luhn checksum number of an entered character
     string input;

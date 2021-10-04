@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+
 #include <stdio.h>
 #include <typeinfo>
 #include <vector>
@@ -129,13 +129,6 @@ int decode()
     }
     // cout << result;
     cout << result << endl;
-
-    return 0;
-}
-
-int main()
-{
-    upside_down_pyramid();
 
     return 0;
 }
