@@ -1,12 +1,7 @@
 #include <iostream>
-#include <string>
-#include <stdio.h>
-#include <typeinfo>
-#include <vector>
-#include <stdexcept>
-using std::cin;
 using std::cout;
-using namespace std;
+// Chapter 3, Problem 1, Page 62
+// Finding the mode of an array
 
 int compare_two_numbers(const void * voidA, const void * voidB) {
     int * intA = (int *)(voidA);
@@ -14,7 +9,7 @@ int compare_two_numbers(const void * voidA, const void * voidB) {
     return * intA - * intB;
 }
 
-int get_mode() {
+int main() {
     int ARRAY_SIZE = 5;
     // int measurements[ARRAY_SIZE] = {2, 5, 3, 1, 3, 7, 3, 9, 8, 2};
     int measurements[ARRAY_SIZE] = {1, 1, 1, 1, 1};
@@ -47,10 +42,5 @@ int get_mode() {
     }
     cout << "The mode is ";
     cout << best_mode_guess;
-    return 0;
-}
-
-int main(){
-    get_mode();
     return 0;
 }
