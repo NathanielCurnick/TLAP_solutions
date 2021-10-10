@@ -4,7 +4,7 @@ using std::cin;
 using std::cout;
 using namespace ::std;
 // Problem 6: Luhn Checksum Validation, Page 31
-
+// TODO this needs to be updated
 int main()
 {
     // finds the Luhn checksum number of an entered character
