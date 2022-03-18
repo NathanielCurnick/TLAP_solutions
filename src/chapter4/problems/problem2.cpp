@@ -1,5 +1,6 @@
 #include <cstddef>
-
+#include <iostream>
+using std::cout;
 // Chapter 4, Problem 2, Page 101
 
 struct ListNode
@@ -56,4 +57,9 @@ int main()
     node2->next = node3;
     node3->next = NULL;
     node1 = node2 = node3 = NULL;
+
+    add_record(sc, 1274, 91);
+    double average = average_record(sc);
+
+    cout << average;
 }

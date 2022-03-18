@@ -57,7 +57,7 @@ void concatenate(ArrayString &s1, ArrayString s2)
     s1 = new_s;
 }
 
-void concatenate_tester()
+void concatenate_test()
 {
     ArrayString a = new char[5];
     a[0] = 't';
@@ -85,4 +85,10 @@ void append_test()
     a[4] = 0;
     append(a, '!');
     cout << a << "\n";
+}
+
+int main()
+{
+    append_test();
+    concatenate_test();
 }
