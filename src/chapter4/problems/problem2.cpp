@@ -21,7 +21,7 @@ void add_record(StudentCollection &sc, int student_number, int grade)
     sc = new_node;
 }
 
-double average_record(StudentCollection sc)
+double average_record(StudentCollection &sc)
 {
     int count = 0;
     double sum = 0;
