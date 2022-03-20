@@ -1,9 +1,9 @@
 // I have made this a header file for reuse in problem two
 
 #include <string>
-using std::string;
 #include <iostream>
 using std::cout;
+using std::string;
 class StudentRecord
 {
 public:

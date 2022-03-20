@@ -16,10 +16,14 @@ public:
     void remove_record(int id_num);
     ~StudentCollection();
 
+    StudentCollection &operator=(const StudentCollection &rhs);
+    StudentCollection(const StudentCollection &original);
+
 private:
     typedef StudentNode *StudentList;
     StudentList _list_head;
     void delete_list(StudentList &list_ptr);
+    StudentList copied_list(const StudentList original);
 };
 
 StudentCollection::StudentCollection()
@@ -81,6 +85,42 @@ void StudentCollection::delete_list(StudentList &list_ptr)
 StudentCollection::~StudentCollection()
 {
     delete_list(_list_head);
+}
+
+StudentCollection::StudentList StudentCollection::copied_list(const StudentList original)
+{
+    if (original == NULL)
+    {
+        return NULL;
+    }
+    StudentList new_list = new StudentNode;
+    new_list->student_data = original->student_data;
+    StudentNode *old_loop_ptr = original->next;
+    StudentNode *new_loop_ptr = new_list;
+    while (old_loop_ptr != NULL)
+    {
+        new_loop_ptr->next = new StudentNode;
+        new_loop_ptr = new_loop_ptr->next;
+        new_loop_ptr->student_data = old_loop_ptr->student_data;
+        old_loop_ptr = old_loop_ptr->next;
+    }
+    new_loop_ptr->next = NULL;
+    return new_list;
+}
+
+StudentCollection &StudentCollection::operator=(const StudentCollection &rhs)
+{
+    if (this != &rhs)
+    {
+        delete_list(_list_head);
+        _list_head = copied_list(rhs._list_head);
+    }
+    return *this;
+}
+
+StudentCollection::StudentCollection(const StudentCollection &original)
+{
+    _list_head = copied_list(original._list_head);
 }
 
 int main() {}
