@@ -10,18 +10,18 @@ struct Data
 
 typedef Data *ListData;
 
-int add_positive_numbers(ListData ld)
+int count_target(ListData ld, int target)
 {
     if (ld == NULL)
         return 0;
 
     int last_num = ld->data;
-    int sum_all_but_last = add_positive_numbers(ld->next);
+    int all_but_last_count = count_target(ld->next, target);
 
-    if (last_num > 0)
-        return last_num + sum_all_but_last;
+    if (last_num == target)
+        return all_but_last_count + 1;
 
-    return sum_all_but_last;
+    return all_but_last_count;
 }
 
 int main()
@@ -35,7 +35,7 @@ int main()
     node2->data = 2;
 
     Data *node3 = new Data;
-    node3->data = -1;
+    node3->data = 2;
 
     Data *node4 = new Data;
     node4->data = 3;
@@ -52,5 +52,5 @@ int main()
 
     node1 = node2 = node3 = node4 = node5 = NULL;
 
-    cout << "Sum of all positive: " << add_positive_numbers(ld) << "\n";
+    cout << "Sum of all positive: " << count_target(ld, 2) << "\n";
 }
